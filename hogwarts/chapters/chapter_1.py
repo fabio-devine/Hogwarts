@@ -74,7 +74,7 @@ def buy_supplies(character):
             exit('Sorry, you do not have enough money to buy this item.\n GAME OVER!')
         print('You bought : {} (-{} Galleaons)'.format(data[it][0],data[it][1]))
         print('')
-    if len(req>=1):
+    if len(req)>=1:
         exit('You are missing some required items...\n GAME OVER!')
     print('All required items have been purchased!')
     print('')
