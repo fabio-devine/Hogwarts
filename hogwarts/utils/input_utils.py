@@ -15,7 +15,7 @@ def ask_choice(message,options):
     for i in range(len(options)):
         print('{}.'.format(i+1),options[i])
     choice = int(input('Your choice : '))
-    return options[choice-1]
+    return choice-1
 
 def load_file(file_path):
     with open(file_path,'r', encoding='utf-8') as f:
