@@ -1,4 +1,4 @@
-from hogwarts.utils.input_utils import ask_text, ask_number, display_character, init_character, ask_choice
+from hogwarts.utils.input_utils import ask_text, ask_number, display_character, init_character, ask_choice, load_file
 
 
 def introduction():
@@ -53,3 +53,33 @@ def meet_hagrid():
 
 def buy_supplies(character):
     print('Welcome to Diagon Alley !')
+    print("")
+    print('Catalog of available items :')
+    data=load_file('../data/inventory.json')
+    for key, value in data.items():
+        n=value[0]
+        p=value[1]
+        print('{}. {} - {} Galleaons'.format(key,n,p),end='')
+        if key=='1' or key=='2' or key=='4':
+            print(' (required)')
+        else:
+            print('')
+    print('')
+    req = [data["1"][1], data["2"][1], data["4"][1]]
+    while character["Money"]>0 and len(req)>=1:
+        print('You have {} Galleaons.'.format(character["Money"]))
+        print('Remaining required items : {}'.format(req))
+        it=input("Enter the number of the item to buy : ")
+        if character["Money"]<data[it][1]:
+            exit('Sorry, you do not have enough money to buy this item.\n GAME OVER!')
+        print('You bought : {} (-{} Galleaons)'.format(data[it][0],data[it][1]))
+        print('')
+    if len(req>=1):
+        exit('You are missing some required items...\n GAME OVER!')
+    print('All required items have been purchased!')
+    print('')
+    print("It's time to choose your Hogwarts pet!")
+    print('')
+    print('You have {} Galleaons'.format(character["Money"]))
+    print('')
+    print('Available pets :')
