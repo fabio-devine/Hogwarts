@@ -59,3 +59,7 @@ def assign_house(character,questions):
         houses[l[i][1]]+=character[l[i][0]]*2
     for v in an:
         houses[l2[v][1]]+=3
+    print('Summary of scores :')
+    for key in houses:
+        print('{} : {} points'.format(key,houses[key]))
+
