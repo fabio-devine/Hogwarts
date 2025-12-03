@@ -83,3 +83,14 @@ def buy_supplies(character):
     print('You have {} Galleaons'.format(character["Money"]))
     print('')
     print('Available pets :')
+    pets={"Owl":20,"Cat":15,"Rat":10,"Toad":10}
+    i=1
+    for key in pets:
+       print("{}. {} - {} Galleaons".format(i,key,pets[key]))
+       i=i+1
+    pk=pets.keys()
+    p=ask_choice('Which pet do you want to buy?',pk)
+    if character["Money"]<pets[pk[p]]:
+        exit('You do not have enough money to buy this pet! \n GAME OVER!')
+    print('You chose: {} (-{} Galleaons)'.format(pk[p],pets[pk[p]]))
+
