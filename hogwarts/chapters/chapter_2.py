@@ -10,12 +10,12 @@ def meet_friends(character):
     choice = ask_choice(
         "How do you respond?",
         ["Sure, have a seat!", "Sorry, I prefer to travel alone."]
-    ) + 1 
+    ) + 1
 
     if choice == 1:
         print("Ron smiles: — Awesome! You'll see, Hogwarts is amazing!\n")
         character["Attributes"]["loyalty"] += 1
-    else: 
+    else:
         print("Ron looks a bit disappointed but nods.\n")
         character["Attributes"]["ambition"] += 1
 
@@ -48,13 +48,14 @@ def meet_friends(character):
     elif choice == 2:
         print("Draco frowns, annoyed. — You'll regret that!\n")
         character["Attributes"]["loyalty"] += 1
-    else: 
+    else:
         print("Draco looks shocked by your boldness.\n")
         character["Attributes"]["courage"] += 1
 
     print("The train continues its journey. Hogwarts Castle appears on the horizon...\n")
     print("Your choices already say a lot about your personality!")
     print("Your updated attributes:", character["Attributes"])
+
 
 def sorting_ceremony(character):
     print("The sorting ceremony begins in the Great Hall...")
@@ -73,7 +74,8 @@ def sorting_ceremony(character):
         ),
         (
             "When faced with a difficult challenge, you...",
-            ["Charge in without hesitation", "Look for the best strategy", "Rely on your friends", "Analyze the problem"],
+            ["Charge in without hesitation", "Look for the best strategy", "Rely on your friends",
+             "Analyze the problem"],
             ["Gryffindor", "Slytherin", "Hufflepuff", "Ravenclaw"]
         )
     ]
@@ -81,10 +83,9 @@ def sorting_ceremony(character):
     answers = []
 
     for q_text, options, houses in questions:
-        print(q_text)
-        choice = ask_choice("Your choice:", options) + 1   # => 1, 2, 3 ou 4
+        choice = ask_choice("Your choice:", options) + 1
         answers.append(choice)
-        print()  # ligne vide pour lisibilité
+        print()
 
     final_house = assign_house(character, questions)
 
@@ -93,6 +94,6 @@ def sorting_ceremony(character):
     print("The Sorting Hat exclaims:", final_house + "!!!")
     print("You join the students of " + final_house + " to loud cheers!\n")
 
-fabio=init_character('Devine', 'Fabio', {'courage':8,'intelligence':8,'loyalty':8,'ambition':8})
 
-
+fabio = init_character('Devine', 'Fabio', {'courage': 8, 'intelligence': 8, 'loyalty': 8, 'ambition': 8})
+print(sorting_ceremony(fabio))
