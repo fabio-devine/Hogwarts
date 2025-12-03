@@ -29,7 +29,9 @@ def create_character():
         att[key]=ask_number("{} level (1-10) : ".format(key),1,10)
     print('')
     print('Character profile: ')
-    display_character(init_character(Last_name,First_name,att))
+    character=init_character(Last_name,First_name,att)
+    display_character(character)
+    return character
 
 def receive_letter():
     print('An owl flies through the window, delivering a letter sealed with the '
@@ -65,13 +67,20 @@ def buy_supplies(character):
         else:
             print('')
     print('')
-    req = [data["1"][1], data["2"][1], data["4"][1]]
+    req_l = [data["1"][0], data["2"][0], data["4"][0]]
+    req=', '.join(req_l)
     while character["Money"]>0 and len(req)>=1:
         print('You have {} Galleaons.'.format(character["Money"]))
         print('Remaining required items : {}'.format(req))
         it=input("Enter the number of the item to buy : ")
         if character["Money"]<data[it][1]:
             exit('Sorry, you do not have enough money to buy this item.\n GAME OVER!')
+        else:
+            character["Money"]-=data[it][1]
+            if data[it][0] in req_l:
+                req_l.remove(data[it][0])
+                req=', '.join(req_l)
+            character["Inventory"].append(data[it][0])
         print('You bought : {} (-{} Galleaons)'.format(data[it][0],data[it][1]))
         print('')
     if len(req)>=1:
@@ -88,9 +97,23 @@ def buy_supplies(character):
     for key in pets:
        print("{}. {} - {} Galleaons".format(i,key,pets[key]))
        i=i+1
-    pk=pets.keys()
+    pk=list(pets.keys())
     p=ask_choice('Which pet do you want to buy?',pk)
     if character["Money"]<pets[pk[p]]:
         exit('You do not have enough money to buy this pet! \n GAME OVER!')
     print('You chose: {} (-{} Galleaons)'.format(pk[p],pets[pk[p]]))
+    character["Money"]-=pets[pk[p]]
+    print('')
+    print('All required items have been successfully purchased! \nHere is your final inventory: ')
+    print('')
+    display_character(character)
+
+def start_chapter_1():
+    introduction()
+    player=create_character()
+    receive_letter()
+    meet_hagrid()
+    buy_supplies(player)
+    print("You've completed the chapter 1 !\n Welcome to Hogwarts ! ")
+    return player
 
