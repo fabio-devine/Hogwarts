@@ -1,3 +1,4 @@
+from hogwarts.utils.input_utils import ask_choice
 def meet_friends(character):
     print("You board the Hogwarts Express. The train slowly departs northward...\n")
     print("A red-haired boy enters your compartment, looking friendly.")
@@ -51,4 +52,5 @@ def meet_friends(character):
     print("The train continues its journey. Hogwarts Castle appears on the horizon...\n")
     print("Your choices already say a lot about your personality!")
     print("Your updated attributes:", character["Attributes"])
+print(meet_friends())
 
