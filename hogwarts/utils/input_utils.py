@@ -32,7 +32,7 @@ def display_character(character):
             for subkey in character[key]:
                 print('- {} : {}'.format(subkey,character[key][subkey]))
         elif type(character[key]) == list:
-            l=','.join(character[key])
+            l=', '.join(character[key])
             print(key, ':', l)
         else :
             print(key, ':', character[key])
