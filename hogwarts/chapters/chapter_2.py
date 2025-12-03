@@ -1,4 +1,7 @@
-from hogwarts.utils.input_utils import ask_choice
+from hogwarts.universe.house import assign_house
+from hogwarts.utils.input_utils import ask_choice, init_character
+
+
 def meet_friends(character):
     print("You board the Hogwarts Express. The train slowly departs northward...\n")
     print("A red-haired boy enters your compartment, looking friendly.")
@@ -52,5 +55,44 @@ def meet_friends(character):
     print("The train continues its journey. Hogwarts Castle appears on the horizon...\n")
     print("Your choices already say a lot about your personality!")
     print("Your updated attributes:", character["Attributes"])
-print(meet_friends())
+
+def sorting_ceremony(character):
+    print("The sorting ceremony begins in the Great Hall...")
+    print("The Sorting Hat observes you for a long time before asking its questions:\n")
+
+    questions = [
+        (
+            "You see a friend in danger. What do you do?",
+            ["Rush to help", "Think of a plan", "Seek help", "Stay calm and observe"],
+            ["Gryffindor", "Slytherin", "Hufflepuff", "Ravenclaw"]
+        ),
+        (
+            "Which trait describes you best?",
+            ["Brave and loyal", "Cunning and ambitious", "Patient and hardworking", "Intelligent and curious"],
+            ["Gryffindor", "Slytherin", "Hufflepuff", "Ravenclaw"]
+        ),
+        (
+            "When faced with a difficult challenge, you...",
+            ["Charge in without hesitation", "Look for the best strategy", "Rely on your friends", "Analyze the problem"],
+            ["Gryffindor", "Slytherin", "Hufflepuff", "Ravenclaw"]
+        )
+    ]
+
+    answers = []
+
+    for q_text, options, houses in questions:
+        print(q_text)
+        choice = ask_choice("Your choice:", options) + 1   # => 1, 2, 3 ou 4
+        answers.append(choice)
+        print()  # ligne vide pour lisibilité
+
+    final_house = assign_house(character, questions)
+
+    character["House"] = final_house
+
+    print("The Sorting Hat exclaims:", final_house + "!!!")
+    print("You join the students of " + final_house + " to loud cheers!\n")
+
+fabio=init_character('Devine', 'Fabio', {'courage':8,'intelligence':8,'loyalty':8,'ambition':8})
+
 

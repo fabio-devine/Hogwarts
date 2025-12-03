@@ -44,4 +44,3 @@ def add_item(character, key, item):
     if key=='Inventory' or key=='Spells':
         character[key].append(item)
 
-fabio=init_character('Devine', 'Fabio', {'Courage':8,'Intelligence':8,'Loyalty':8,'Ambition':8})
