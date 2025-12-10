@@ -117,4 +117,4 @@ def start_chapter_1():
     print("You've completed the chapter 1 !\n Welcome to Hogwarts ! ")
     return player
 
-start_chapter_1()
+
