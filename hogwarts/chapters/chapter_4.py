@@ -1,4 +1,5 @@
-from hogwarts.utils.input_utils import ask_text, load_file
+from hogwarts.utils.input_utils import ask_text, load_file, display_character
+
 
 def randint(a, b):
     import random
