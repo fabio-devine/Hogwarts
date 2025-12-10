@@ -72,7 +72,7 @@ def buy_supplies(character):
     while character["Money"]>0 and len(req)>=1:
         print('You have {} Galleaons.'.format(character["Money"]))
         print('Remaining required items : {}'.format(req))
-        it=input("Enter the number of the item to buy : ")
+        it=ask_number("Enter the number of the item to buy : ")
         if character["Money"]<data[it][1]:
             exit('Sorry, you do not have enough money to buy this item.\n GAME OVER!')
         else:
