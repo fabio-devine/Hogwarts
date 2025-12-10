@@ -50,16 +50,25 @@ def display_winning_house(houses):
     print(','.join(winner))
 
 def assign_house(character,questions):
+    global house
     an=[]
     for question in questions:
         an.append(ask_choice(question[0],question[1]))
-    l=[('Courage','Gryffindor'),('Ambition','Slytherin'),('Loyalty','Hufflepuff'),('Intelligence','Ravenclaw')]
+    l={'Courage':'Gryffindor','Ambition':'Slytherin','Loyalty':'Hufflepuff','Intelligence':'Ravenclaw'}
     l2=[(0,'Gryffindor'),(1,'Slytherin'),(2,'Hufflepuff'),(3,'Ravenclaw')]
-    for i in character:
-        houses[l[i][1]]+=character[l[i][0]]*2
+    for key in character['Attributes']:
+        houses[l[key]]+=character['Attributes'][key]*2
     for v in an:
         houses[l2[v][1]]+=3
+    house_pt=0
     print('Summary of scores :')
     for key in houses:
         print('{} : {} points'.format(key,houses[key]))
+        if  houses[key]>house_pt:
+            house_pt=houses[key]
+    for key in houses:
+        if houses[key]==house_pt:
+            house=key
+            break
+    return house
 
