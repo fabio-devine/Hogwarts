@@ -1,4 +1,4 @@
-from hogwarts.utils.input_utils import ask_choice
+from hogwarts.utils.input_utils import ask_choice, load_file
 
 houses={
     "Gryffindor":0,
@@ -38,7 +38,7 @@ def update_house_points(houses,house_name,points):
     else:
         print("This house doesn't exist")
 
-def display_winning_house(houses):
+def display_winning_house(house):
     max_points=0
     winner=[]
     for key in houses:
@@ -50,7 +50,6 @@ def display_winning_house(houses):
     print(','.join(winner))
 
 def assign_house(character,questions):
-    global house
     an=[]
     for question in questions:
         an.append(ask_choice(question[0],question[1]))
