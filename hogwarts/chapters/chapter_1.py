@@ -57,7 +57,7 @@ def buy_supplies(character):
     print('Welcome to Diagon Alley !')
     print("")
     print('Catalog of available items :')
-    data=load_file('../data/inventory.json')
+    data=load_file('data/inventory.json')
     for key, value in data.items():
         n=value[0]
         p=value[1]

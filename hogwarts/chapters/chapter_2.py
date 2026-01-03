@@ -88,7 +88,7 @@ def sorting_ceremony(character):
     print("You join the students of ",final_house," to loud cheers!\n")
 
 def enter_common_room(character):
-    houses = load_file("../data/houses.json")
+    houses = load_file("data/houses.json")
     house_name = character["House"]
     info = houses[house_name]
     print("You follow the prefects through the castle corridors...\n")
