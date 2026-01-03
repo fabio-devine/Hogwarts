@@ -136,4 +136,5 @@ def start_chapter_4_quidditch(character, houses):
             best = h
     print("The winning house is", best, "with", houses[best], "points!")
     display_character(character)
+    return character
 

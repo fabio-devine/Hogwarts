@@ -77,4 +77,5 @@ def start_chapter_3(character,houses):
     display_winning_house(houses)
     input('Press Enter to continue...')
     display_character(character)
+    return character
 

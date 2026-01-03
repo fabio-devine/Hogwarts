@@ -1,6 +1,8 @@
 from hogwarts.chapters.chapter_1 import start_chapter_1
 from hogwarts.chapters.chapter_2 import start_chapter_2
 from hogwarts.chapters.chapter_3 import start_chapter_3
+from hogwarts.chapters.chapter_4 import start_chapter_4_quidditch
+from hogwarts.chapters.chapter_5_extension import start_chapter_5
 
 
 def display_main_menu():
@@ -24,7 +26,7 @@ def launch_main_choice():
             exit('Goodbye')
         else:
             print("Invalid Choice")
-    start_chapter_3(start_chapter_2(start_chapter_1()),houses)
+    start_chapter_5(start_chapter_4_quidditch(start_chapter_3(start_chapter_2(start_chapter_1()),houses),houses))
 
-launch_main_choice()
+
 
