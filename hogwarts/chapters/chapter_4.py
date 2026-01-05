@@ -72,7 +72,7 @@ def display_team(house, team):
 
 
 def quidditch_match(character, houses):
-    team_data = load_file("../data/teams_quidditch.json")
+    team_data = load_file("data/teams_quidditch.json")
 
     player_house = character["House"]
     available = []
