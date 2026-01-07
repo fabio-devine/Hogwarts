@@ -34,7 +34,7 @@ def learn_spells(character,file_path="data/spells.json"):
     while offensive_count < 1 :
         chosen=random.choice(spells)
         if chosen['type']=="Offensive":
-            utility_count+=1
+            offensive_count+=1
             learned_spells.append(chosen)
             spells.remove(chosen)
     print('You begin your magic lessons at Hogwarts...')

@@ -8,11 +8,14 @@ def randint(a, b):
 
 def create_team(house, team_data, is_player=False, player=None):
     players = []
-    for member in team_data[house]:
-        name = member["name"]
-        role = member["role"]
+
+    for member in team_data[house]["players"]:
+        name, role = member.split(" (")
+        role = role.replace(")", "")
+
         if is_player and role == "Seeker" and player is not None:
             name = player
+
         players.append(f"{name} ({role})")
 
     return {
@@ -23,6 +26,7 @@ def create_team(house, team_data, is_player=False, player=None):
         "caught_snitch": False,
         "players": players
     }
+
 
 
 def attempt_goal(attacking_team, defending_team, player_is_seeker=False):
@@ -94,7 +98,7 @@ def quidditch_match(character, houses):
 
     turn = 1
     while turn <= 20:
-        print("Turn", turn)
+        print("---- Turn", turn, "----")
 
         attempt_goal(e1, e2, True)
         attempt_goal(e2, e1, False)
