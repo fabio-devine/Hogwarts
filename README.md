@@ -1,68 +1,124 @@
-Hogwarts Project
+# Hogwarts — A Python Text Adventure
 
-1. General Presentation
+A console-based adventure game inspired by the Harry Potter universe, developed in Python as part of a university project.
 
-Hogwarts game
+Create your character, explore the wizarding world, make choices that influence your attributes, discover your Hogwarts house, learn spells, compete in a Quidditch match, and face challenges in the Chamber of Secrets.
 
-Brief Description
-This project was developed as part of a university assignment. It is inspired by the Harry Potter universe and focuses on implementing a game or logical application related to a “guessing” or “divination” concept. The project is written in Python and organized using a modular structure within the `hogwarts` directory.
+> **Disclaimer:** This is an unofficial, fan-made educational project inspired by the Harry Potter universe. It is not affiliated with or endorsed by Warner Bros., J.K. Rowling, or any official rights holder.
 
-Contributors
-- Joshua Hamon
-- Fabio Devine
+## Overview
 
----
+**Hogwarts** is an interactive, text-based game in which the player progresses through a series of chapters using console input. The project combines narrative storytelling with character management, decision-making, JSON-based data, and randomized game mechanics.
 
-Installation
+The game is organized into separate Python modules, with dedicated folders for chapters, data, utilities, and elements related to the fictional universe.
 
-Instructions for Cloning the Git Repository
-To clone the repository, run the following command:
+## Features
 
-  git clone https://github.com/jsh-hmn/hogwarts-devine-hamon-int1.git
-  cd hogwarts-devine-hamon-int1
+- **Character creation:** Choose a first name, last name, and four attributes: Courage, Intelligence, Loyalty, and Ambition.
+- **Interactive storytelling:** Progress through the adventure by selecting actions and responding to characters and situations.
+- **Hogwarts house sorting:** Determine a house based on character attributes and answers to sorting questions.
+- **Inventory and currency management:** Purchase required school supplies and choose a magical pet while managing a starting budget of 100 Galleons.
+- **Spell learning:** Explore magical spells and test your knowledge through a quiz.
+- **House points:** Earn points through quiz results and Quidditch outcomes.
+- **Quidditch simulation:** Participate as a Seeker in a randomized match featuring goals, defensive actions, the Golden Snitch, and score tracking.
+- **Chamber of Secrets extension:** Face challenges involving the Forbidden Forest, the Basilisk, and Tom Riddle, with outcomes influenced by character attributes and decisions.
 
-Usage
+## Game Chapters
 
-How to Run the Application
-- Run the main program using the following command: python main.py
+### Chapter 1 — Arrival in the Magical World
+Create your character, receive your Hogwarts letter, meet Hagrid, and purchase school supplies and a pet. Your available money and required items affect your progression.
 
-Example Use Cases
+### Chapter 2 — Friends and House Sorting
+Meet Ron Weasley, Hermione Granger, and Draco Malfoy. Your dialogue choices modify your character's attributes, which contribute to the house-sorting process.
 
-Launch the program and follow the on-screen instructions.
+### Chapter 3 — Learning Spells
+Discover spells and complete a magical knowledge quiz. Quiz results contribute to the house-point system.
 
+### Chapter 4 — Quidditch
+Play as your house's Seeker against a randomly selected opposing house. The match uses randomized scoring events, a possible Golden Snitch appearance, and final score calculations.
 
-Key Features
+### Chapter 5 — The Chamber of Secrets (Extension)
+Explore the Forbidden Forest, confront the Basilisk, and encounter Tom Riddle. Choices and character attributes influence the outcomes of these encounters.
 
-User interaction through command-line input
-Input validation and error handling
-Modular and structured Python code
-Application logic inspired by a fictional universe
+## Technologies
 
-2. Logbook
-   
-Project Timeline
+- **Python** — game logic, functions, control flow, and player interaction.
+- **JSON** — structured storage for game data, including houses, inventory items, spells, quiz questions, and Quidditch teams.
+- **Command-line interface** — text-based menus, prompts, and game output.
+- **Modular project structure** — separate modules for chapters, utilities, and house-related logic.
 
-Date	Milestone	Description
-28/11/2025	Project initialization	Repository creation and project setup
-19/12/2025	Core functionality implemented	Main logic development
-03/01/2026	Debugging and testing	Bug fixes and improvements
+## Project Structure
 
-Task Distribution
+```text
+Hogwarts/
+├── README.md
+└── hogwarts/
+    ├── main.py
+    ├── menu.py
+    ├── chapters/
+    │   ├── chapter_1.py
+    │   ├── chapter_2.py
+    │   ├── chapter_3.py
+    │   ├── chapter_4.py
+    │   └── chapter_5_extension.py
+    ├── data/
+    │   ├── houses.json
+    │   ├── inventory.json
+    │   ├── magic_quiz.json
+    │   ├── spells.json
+    │   └── teams_quidditch.json
+    ├── universe/
+    │   ├── characters.py
+    │   └── house.py
+    └── utils/
+        └── input_utils.py
+```
 
-Contributor	Responsibilities
-Fabio Devine	Project structure, core logic
-Joshua Hamon	Input handling, testing, documentation
+## Installation
 
-3. Control, Testing, and Validation
-   
-Input and Error Management
+### Prerequisites
 
-The program includes mechanisms to handle incorrect or unexpected inputs:
-Validation of user input types and value ranges
-Error messages displayed when invalid data is entered
-Use of conditional checks to prevent program crashes
+- Python 3
+- Git
+- A terminal or Python IDE, such as PyCharm
 
-Known Bugs
+No third-party Python packages are explicitly imported by the project's source files; the game primarily uses Python's built-in functionality.
 
-No major bugs identified at this stage
+### Clone the repository
 
+```bash
+git clone https://github.com/fabio-devine/Hogwarts.git
+cd Hogwarts
+```
+
+### Run the game
+
+The main entry point is `hogwarts/main.py`, which launches the main menu.
+
+```bash
+python -m hogwarts.main
+```
+
+**Note:** The current implementation loads JSON files using relative paths such as `data/inventory.json`, while the data files are located in `hogwarts/data/`. Consequently, the launch command may encounter file-path errors without an appropriate working directory or path configuration. The source code has not been modified to resolve this issue.
+
+## Learning Objectives
+
+This project provided an opportunity to work with:
+
+- Decomposing a program into modules and reusable functions.
+- Managing structured data with dictionaries, lists, and JSON files.
+- Implementing conditional logic, loops, and user-driven branching.
+- Tracking player attributes, inventory, currency, and scores.
+- Using randomization to simulate game events.
+- Organizing a multi-chapter application with a clear directory structure.
+
+## Contributors
+
+- **Fabio Devine** — project structure and core game logic.
+- **Joshua Hamon** — input handling, testing, and documentation.
+
+## Project Context
+
+Developed as a university programming project during the 2025–2026 academic year.
+
+This repository is an educational project. It is not an official Harry Potter game, and all references to the fictional universe belong to their respective rights holders.
